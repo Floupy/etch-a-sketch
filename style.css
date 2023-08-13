@@ -10,7 +10,7 @@
 
 
 }
-.grid, .blackGrid {
+.grid {
     padding: 0;
     margin: 0;
     flex: 1 1;
@@ -23,5 +23,9 @@
 }
 .blackGrid {
     background-color: black;
+}
+
+.blackInk {
+
 }
 
