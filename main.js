@@ -39,6 +39,12 @@ function draw (){
 }
 
 function getGridSize() {
-    gridSize = Number(prompt("How big would you like your grid? \n Hint: Grid = number * number", '64'));
+    gridSize = Number(prompt("How big would you like your grid?(max: 100) \nHint: Grid = number * number", '64'));
+    if(gridSize > 100) {
+        gridSize = Number(prompt("Please choose a size below 100!\nHow big would you like your grid?(max: 100) \nHint: Grid = number * number", '64'));
+    }
+    else {
+        return gridSize;
+    }
 
 }
