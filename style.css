@@ -6,26 +6,20 @@
     width: 960px;
     height: 960px;
     flex-wrap: wrap;
-    pointer-events: none;
+
 
 
 }
-.grid {
+.cell {
     padding: 0;
     margin: 0;
     flex: 1 1;
     flex-wrap: wrap;
     aspect-ratio: 1/1;
     outline: 1px solid gray;
-    pointer-events: auto;
 
 
-}
-.blackGrid {
-    background-color: black;
-}
-
-.blackInk {
 
 }
+
 
