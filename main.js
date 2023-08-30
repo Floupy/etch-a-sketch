@@ -1,5 +1,7 @@
 "use strict";
 
+// TODO implement:  implement a progressive darkening effect where each interaction adds 10% more black or color to the square. The objective is to achieve a completely black square only after ten interactions.
+
 const container = document.querySelector('.container');
 const createGridButton = document.querySelector('.createGrid');
 const clearGridButton = document.querySelector('.clearGrid');
@@ -7,10 +9,13 @@ const toggleBlackInkButton = document.querySelector('.blackInk');
 const toggleColourfulInk = document.querySelector('.colourfulInk');
 const darkenInkButton = document.querySelector('.darkenInk');
 const toggleCellBorderButton = document.querySelector('.toggleCellBorder');
-let cell = document.querySelector('.cell');
+let gridSizeSlider = document.querySelector('.gridSizeSlider');
+let gridSizeText = document.querySelector('.gridSizeText')
+let cell = document.querySelector('.class');
+let containerSize = container.clientWidth;
 
 
-let gridSize = 16
+let gridSize = 16;
 let maxCellSize = 0;
 
 createGridButton.addEventListener('click', createGrid);
@@ -19,10 +24,14 @@ toggleBlackInkButton.addEventListener('click', drawBlack);
 toggleColourfulInk.addEventListener('click', drawColourful);
 darkenInkButton.addEventListener('click', drawDarken);
 toggleCellBorderButton.addEventListener('click', toggleCellBorder);
+gridSizeSlider.addEventListener('change', createGrid)
 function createGrid() {
-    clearGrid();
+    container.innerHTML = ' ';
+    dynamicGridSizeText();
+
     getGridSize();
-    maxCellSize = (960 / gridSize);
+    maxCellSize = (containerSize / gridSize);
+    console.log(maxCellSize)
         for(let i = 0; i < gridSize * gridSize; i++) {
             cell = document.createElement('div');
             cell.classList.add('cell');
@@ -34,7 +43,8 @@ function createGrid() {
         }
 }
 function clearGrid() {
-    container.innerText = " ";
+    container.innerHTML = ' ';
+    createGrid();
 }
 
 function draw() {
@@ -87,13 +97,16 @@ function drawDarken() {
 }
 
 function getGridSize() {
-    gridSize = Number(prompt("How big would you like your grid?(max: 100) \nHint: Grid = number * number", '64'));
-    if(gridSize > 100) {
-        gridSize = Number(prompt("Please choose a size below 100!\nHow big would you like your grid?(max: 100) \nHint: Grid = number * number", '64'));
-    }
-    else {
-        return gridSize;
-    }
+    // gridSize = Number(prompt("How big would you like your grid?(max: 100) \nHint: Grid = number * number", '64'));
+    // if(gridSize > 100) {
+    //     gridSize = Number(prompt("Please choose a size below 100!\nHow big would you like your grid?(max: 100) \nHint: Grid = number * number", '64'));
+    // }
+    // else {
+    //     return gridSize;
+    // }
+
+    gridSize = gridSizeSlider.value;
+    gridSizeText.textContent = `Grid Size: ${gridSize} x ${gridSize}`;
 }
 
 function toggleCellBorder() {
@@ -101,7 +114,7 @@ function toggleCellBorder() {
     console.log('cell Border Toggled');
 
     // cell.classList.add('hasBorder');
-    if(cell.classList.contains('hasBorder')) {
+    if(container.classList.contains('hasBorder')) {
         cell.classList.remove('hasBorder');
         // cell.style.outlineStyle = 'solid';
         // cell.style.outlineWidth = '0.5px';
@@ -116,4 +129,8 @@ function toggleCellBorder() {
 }
 function darkenColour() {
 
+}
+function dynamicGridSizeText() {
+    gridSize = gridSizeSlider.value;
+    gridSizeText.textContent = `Grid size:${gridSize} x ${gridSize}`;
 }

@@ -10,8 +10,8 @@ body {
     align-content: center;
     justify-content: center;
     box-sizing: content-box;
-    width: 960px;
-    height: 960px;
+    width: 750px;
+    aspect-ratio: 1 / 1;
     flex-wrap: wrap;
     background-color: white;
     border: 25px darkred ridge;
@@ -58,7 +58,7 @@ body {
 }
 
 .hasBorder {
-    /*outline: gray solid 1px;*/
+    outline: gray solid 1px;
 }
 h3 {
     display: flex;
@@ -67,4 +67,15 @@ h3 {
     font-family: "Comic Sans MS", cursive;
     font-size: x-large;
     color: yellow;
+}
+
+.gridSizeText {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.gridSizeSlider {
+    width: 90%;
+    height: 25px;
 }
