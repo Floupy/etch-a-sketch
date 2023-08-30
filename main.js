@@ -3,7 +3,6 @@
 // TODO implement:  implement a progressive darkening effect where each interaction adds 10% more black or color to the square. The objective is to achieve a completely black square only after ten interactions.
 
 const container = document.querySelector('.container');
-const createGridButton = document.querySelector('.createGrid');
 const clearGridButton = document.querySelector('.clearGrid');
 const toggleBlackInkButton = document.querySelector('.blackInk');
 const toggleColourfulInk = document.querySelector('.colourfulInk');
@@ -18,7 +17,6 @@ let containerSize = container.clientWidth;
 let gridSize = 16;
 let maxCellSize = 0;
 
-createGridButton.addEventListener('click', createGrid);
 clearGridButton.addEventListener('click', clearGrid);
 toggleBlackInkButton.addEventListener('click', drawBlack);
 toggleColourfulInk.addEventListener('click', drawColourful);
@@ -28,7 +26,6 @@ gridSizeSlider.addEventListener('change', createGrid)
 function createGrid() {
     container.innerHTML = ' ';
     dynamicGridSizeText();
-
     getGridSize();
     maxCellSize = (containerSize / gridSize);
     console.log(maxCellSize)
